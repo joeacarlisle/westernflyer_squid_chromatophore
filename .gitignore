@@ -1,0 +1,23 @@
+# Virtual environment
+.venv/
+
+# JetBrains tools
+.idea/
+.junie/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Generated output
+processed/
+logs/
+
+# Videos (the synthetic demo and the small real test clips) are kept in git. If clips get large (tens of MB), use Git LFS
+# (git lfs track "videos/*.mp4") or add them back here.
+
+# OS files
+.DS_Store
+Thumbs.db

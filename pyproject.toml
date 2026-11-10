@@ -1,0 +1,40 @@
+[project]
+name = "wf-squid-chromatophore"
+version = "0.1.0"
+description = "Western Flyer Humboldt squid chromatophore video analysis (prototype): flashing and flickering detection with a Panel/HoloViews dashboard"
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+authors = [
+    {name = "Joe Carlisle", email = "joeacarlisle@gmail.com"},
+]
+
+# Versions match the other Western Flyer projects (Python 3.13).
+dependencies = [
+    "numpy~=2.5.0",
+    "pandas~=3.0.3",
+    "scipy~=1.18.0",
+    "duckdb~=2.0.0",   # the database file format changes between major versions; a 2.0 file cannot be opened by 1.x
+    # Video reading (headless build: no GUI libraries needed)
+    "opencv-python-headless~=5.0.0",
+    # Bundled ffmpeg, used only to write the synthetic demo video as H.264 (plays in every browser)
+    "imageio-ffmpeg~=0.8.1",
+    # Dashboard
+    "bokeh~=3.9.1",
+    "holoviews~=1.23.1",
+    "panel~=1.9.3",
+]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+# The modules live at the project root (no src/ layout).
+[tool.setuptools]
+py-modules = [
+    "main",
+    "chroma_analysis",
+    "roi_tracker",
+    "make_demo_video",
+    "compare_spectra",
+    "chromatophore_holoviews",
+]

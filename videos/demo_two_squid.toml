@@ -1,0 +1,9 @@
+# ROI boxes (x, y, width, height in pixels) for demo_two_squid.mp4
+[rois]
+squid_A = [140, 172, 120, 36]
+squid_B = [385, 152, 100, 36]
+
+# Grids: [x, y, width, height, rows, columns] (spatial synchrony across small boxes)
+[grids]
+grid_squid_A = [140, 172, 120, 36, 2, 6]
+grid_squid_B = [385, 152, 100, 36, 2, 6]

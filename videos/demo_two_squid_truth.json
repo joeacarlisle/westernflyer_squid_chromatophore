@@ -1,0 +1,99 @@
+{
+  "video_id": "demo_two_squid",
+  "fps": 30,
+  "synthetic": true,
+  "segments": {
+    "squid_A": [
+      {
+        "t_start": 0,
+        "t_end": 8,
+        "state": "quiet",
+        "freq_hz": 0,
+        "amplitude": 0,
+        "phase_B_deg": 0
+      },
+      {
+        "t_start": 8,
+        "t_end": 18,
+        "state": "flickering",
+        "freq_hz": 0,
+        "amplitude": 0,
+        "phase_B_deg": 0
+      },
+      {
+        "t_start": 18,
+        "t_end": 30,
+        "state": "flashing",
+        "freq_hz": 3.0,
+        "amplitude": 0.8,
+        "phase_B_deg": 0
+      },
+      {
+        "t_start": 30,
+        "t_end": 34,
+        "state": "quiet",
+        "freq_hz": 0,
+        "amplitude": 0,
+        "phase_B_deg": 0
+      },
+      {
+        "t_start": 34,
+        "t_end": 40,
+        "state": "flashing",
+        "freq_hz": 2.0,
+        "amplitude": 0.5,
+        "phase_B_deg": 0
+      }
+    ],
+    "squid_B": [
+      {
+        "t_start": 0,
+        "t_end": 8,
+        "state": "quiet",
+        "freq_hz": 0,
+        "amplitude": 0,
+        "phase_B_deg": 0
+      },
+      {
+        "t_start": 8,
+        "t_end": 18,
+        "state": "flickering",
+        "freq_hz": 0,
+        "amplitude": 0,
+        "phase_B_deg": 0
+      },
+      {
+        "t_start": 18,
+        "t_end": 24,
+        "state": "flashing",
+        "freq_hz": 3.0,
+        "amplitude": 0.8,
+        "phase_B_deg": 0
+      },
+      {
+        "t_start": 24,
+        "t_end": 30,
+        "state": "flashing",
+        "freq_hz": 3.0,
+        "amplitude": 0.8,
+        "phase_B_deg": 180
+      },
+      {
+        "t_start": 30,
+        "t_end": 34,
+        "state": "quiet",
+        "freq_hz": 0,
+        "amplitude": 0,
+        "phase_B_deg": 0
+      },
+      {
+        "t_start": 34,
+        "t_end": 40,
+        "state": "flashing",
+        "freq_hz": 2.0,
+        "amplitude": 0.5,
+        "phase_B_deg": 90
+      }
+    ]
+  }
+}

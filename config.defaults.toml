@@ -1,0 +1,49 @@
+# Default analysis settings.  A video can override any value in videos/<video_id>.toml
+# (add [analysis] or [classify] tables there).  The thresholds are PLACEHOLDERS: they were tuned on the
+# synthetic demo video and must be checked against clips that Dr. Gilly's group has labeled by hand.
+
+[analysis]
+window_s = 2.0            # length of each analysis window (frequency resolution is about 1 / window_s)
+hop_s = 0.5               # step between windows
+band_hz = [0.5, 8.0]      # frequencies considered; slower drift (lighting, swimming) is ignored
+nfft = 512                # zero-padded FFT length (interpolates the peak frequency)
+
+[classify]
+# State of a ROI in a window:
+#   quiet       signal swing (peak-to-peak, 0-1 gray units) below quiet_p2p_max
+#   flashing    swing at least flash_p2p_min AND one sharp peak (peak_conc >= flash_peak_conc_min)
+#               inside flash_freq_hz (Rosen et al. 2015 report 2-4 Hz in Humboldt squid)
+#   flickering  anything else that is above the quiet level (broadband, no single dominant frequency)
+quiet_p2p_max = 0.04
+flash_freq_hz = [1.5, 5.0]
+flash_p2p_min = 0.15
+flash_peak_conc_min = 0.55
+smooth_windows = 3        # median filter over this many windows (odd number; 1 = off)
+
+[tracking]
+# ROIs named here follow the animal (a video's own toml lists them, e.g.  [tracking]  rois = ["mantle"]).
+# The other ROIs stay fixed.  Only translation is followed; the box keeps its size.
+rois = []
+max_corners = 40          # feature points followed inside each box
+min_points = 6            # fewer reliable points than this and the box stays put and the frame is flagged as lost
+redetect_below = 12       # find new points when fewer than this are left
+fb_error_px = 1.0         # a point is kept only if tracking it backwards returns within this many pixels
+win_px = 15               # optical-flow window (pixels)
+max_lost_frac = 0.2       # a window with more than this share of lost frames is labeled 'untracked'
+
+[cycles]
+# Cycle-by-cycle flash frequency inside flashing episodes (Rosen et al. 2015: inverse of the time between cycles).
+smooth_frames = 3          # moving average before looking for peaks
+min_prominence_frac = 0.3  # a peak must stand out by this share of the episode's swing
+
+[pauses]
+# Pauses = the signal stops changing (Rosen et al. 2015: rolling standard deviation).  PLACEHOLDERS, like the rest.
+window_s = 0.4             # rolling window for the frame-to-frame change
+below_frac = 0.25          # below this share of the flickering level counts as paused
+min_s = 0.3                # shortest pause kept
+context_s = 1.0            # look this far back to ask whether the signal was active before the pause
+follow_s = 1.5             # look this far ahead for a flashing episode
+
+[synchrony]
+# Grid ROIs (a video's own toml: [grids]  name = [x, y, width, height, rows, columns]) give a spatial synchrony index.
+min_std = 0.01             # a box must vary at least this much (std, 0-1 gray units) in a window to count

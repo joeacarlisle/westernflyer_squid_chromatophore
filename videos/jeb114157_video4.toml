@@ -1,0 +1,7 @@
+# Rosen et al. 2015, Movie 4: reflections of downwelled sunlight on the dorsal surface, daytime, before release (a light
+# reference, not a display). Original: 320x240, 15 fps, 10.6 s, grayscale footage. The first frames are black.
+# mantle: pale skin at the bottom of the frame. dorsal_light: a GUESS at where the sunlight pattern is visible (diagonal
+# streaks upper right); check against the video and move it.
+[rois]
+mantle = [135, 205, 50, 12]
+dorsal_light = [170, 30, 90, 70]

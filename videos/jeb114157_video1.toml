@@ -1,0 +1,12 @@
+# Rosen et al. 2015, Movie 1 (general behaviors of the squid carrying the Crittercam). Original: 176x144, 15 fps, 15.4 s, grayscale footage.
+# mantle: the pale body of the camera-carrying squid along the bottom of the frame. Fixed box, not tracked
+# (tracking the camera squid's mantle lowered flash detection in Movie 2, see README). Checked on frames at 0, 4, 8 and 12 s.
+[rois]
+mantle = [70, 110, 50, 12]
+# background: open water at the upper left (no squid in it at 0, 4, 8, 12 s). Reference for camera or lighting changes:
+# if it oscillates like the mantle, the 'flashing' there is not skin color.
+background = [10, 25, 40, 12]
+
+# Spatial synchrony across the mantle ROI (rows, columns)
+[grids]
+mantle_grid = [70, 110, 50, 12, 2, 5]

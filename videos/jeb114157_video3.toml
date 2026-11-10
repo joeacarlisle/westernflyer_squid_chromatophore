@@ -1,0 +1,7 @@
+# Rosen et al. 2015, Movie 3 (flickering). Original: 176x144, 15 fps, 4.5 s, grayscale Crittercam footage.
+[rois]
+mantle = [52, 110, 60, 14]
+
+# Spatial synchrony across the mantle ROI (rows, columns)
+[grids]
+mantle_grid = [52, 110, 60, 14, 2, 4]
